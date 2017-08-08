@@ -24,6 +24,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 #assets
+gem 'jquery-rails'
 gem 'rails-assets-bootstrap-sass'
 gem 'bootstrap-material-design'
 gem 'rails-assets-jquery-ui'
