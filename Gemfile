@@ -12,6 +12,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'simple_form'
 gem "nested_form"
 gem 'stringex'
