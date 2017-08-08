@@ -197,6 +197,8 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    uglifier (3.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -236,7 +238,11 @@ DEPENDENCIES
   stringex
   turbolinks (~> 5)
   tzinfo-data
+  uglifier
   web-console (>= 3.3.0)
+
+RUBY VERSION
+   ruby 2.3.4p301
 
 BUNDLED WITH
    1.15.3
