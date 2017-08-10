@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data begin:</strong>
+  <%= @occurrence.data_begin %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @occurrence.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @occurrence.description %>
+</p>
+
+<%= link_to 'Edit', edit_occurrence_path(@occurrence) %> |
+<%= link_to 'Back', occurrences_path %>
