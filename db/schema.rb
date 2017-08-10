@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810192216) do
+ActiveRecord::Schema.define(version: 20170810193053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "occurrences", force: :cascade do |t|
+    t.datetime "data_begin"
+    t.string "status"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photo_occurrences", force: :cascade do |t|
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.bigint "occurrence_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["occurrence_id"], name: "index_photo_occurrences_on_occurrence_id"
+  end
 
   create_table "types", force: :cascade do |t|
     t.string "title"
@@ -43,4 +62,5 @@ ActiveRecord::Schema.define(version: 20170810192216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "photo_occurrences", "occurrences"
 end
