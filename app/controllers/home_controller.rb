@@ -14,7 +14,7 @@ class HomeController < ApplicationController
 	private
 		def occurrence_params
 	      params.require(:occurrence).permit(
-	      	:data_begin, :status, :description, :user_id, :date_end, 
+	      	:data_begin, :status, :description, :user_id, :date_end, :latitude, :longitude 
 	      	:photo_occurrences_attributes =>[:id, :photo, :_destroy]
       		)
 	    end
