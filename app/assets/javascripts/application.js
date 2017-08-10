@@ -21,13 +21,51 @@
 
 $(document).ready(function(){
 	$.material.init();
-
 });
 
       var map;
+      var myLatLng = {lat: -25.363, lng: 131.044};
+
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: myLatLng,
+          zoom: 16
         });
+		var infoWindow = new google.maps.InfoWindow({map: map});
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+        var marker = new google.maps.Marker({
+		    position: pos,
+		    map: map,
+		    title: 'Hello World!'
+		  });
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
       }
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+function showPosition(position) {
+	$lat = position.coords.latitude;
+	$lng = position.coords.longitude;
+	var lat = position.coords.latitude;
+	var lng = position.coords.longitude;
+	map.setCenter(new google.maps.LatLng(lat, lng));
+}
