@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810193053) do
+ActiveRecord::Schema.define(version: 20170810200934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170810193053) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.datetime "date_end"
+    t.index ["user_id"], name: "index_occurrences_on_user_id"
   end
 
   create_table "photo_occurrences", force: :cascade do |t|
@@ -62,5 +65,6 @@ ActiveRecord::Schema.define(version: 20170810193053) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "occurrences", "users"
   add_foreign_key "photo_occurrences", "occurrences"
 end
