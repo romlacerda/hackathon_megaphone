@@ -3,7 +3,6 @@ class HomeController < ApplicationController
 
 	def index
 		@occurrence = Occurrence.new
-		@occurrences = Occurrence.all
 	end
 
 	def create_occurrence(occurrence)
@@ -12,11 +11,14 @@ class HomeController < ApplicationController
 	end
 
 
+
+
 	private
 		def occurrence_params
 	      params.require(:occurrence).permit(
-	      	:data_begin, :status, :description, :user_id, :date_end, :latitude, :longitude, 
-	      	:photo_occurrences_attributes =>[:id, :photo, :_destroy]
-      	  )
+	        :data_begin, :status, :description, :user_id, :latitude, :longitude, :date_end,
+	        :votes_attributes => [:id, :vote, :_destroy],
+	        :photo_occurrences_attributes => [:id, :photo, :_destroy]
+	      )
 	    end
 end
