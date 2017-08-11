@@ -1,3 +1,3 @@
 class Vote < ApplicationRecord
-	belongs_to :occurrence
+  belongs_to :occurrences
 end

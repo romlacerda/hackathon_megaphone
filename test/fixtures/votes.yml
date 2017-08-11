@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  vote: 
-  references: 
+  vote: false
+  occurrences: one
 
 two:
-  vote: 
-  references: 
+  vote: false
+  occurrences: two
