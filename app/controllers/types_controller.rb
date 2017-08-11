@@ -61,7 +61,7 @@ class TypesController < ApplicationController
     end
   end
 
-  private
+  public
     # Use callbacks to share common setup or constraints between actions.
     def set_type
       @type = Type.find(params[:id])

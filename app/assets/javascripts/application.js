@@ -62,6 +62,7 @@ function initMap(position) {
 
   	});
   	function placeMarker(location) {
+  		console.log(location);
 	    var marker = new google.maps.Marker({
 	        position: location, 
 	        map: map

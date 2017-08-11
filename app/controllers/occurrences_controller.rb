@@ -71,7 +71,7 @@ class OccurrencesController < ApplicationController
     def occurrence_params
       params.require(:occurrence).permit(
         :data_begin, :status, :description, :user_id, :latitude, :longitude, :date_end,
-
+        :type_id,
         :votes_attributes => [:id, :vote, :_destroy],
         :photo_occurrences_attributes => [:id, :photo, :_destroy]
       )
