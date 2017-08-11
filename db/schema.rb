@@ -71,14 +71,14 @@ ActiveRecord::Schema.define(version: 20170811200523) do
 
   create_table "votes", force: :cascade do |t|
     t.boolean "vote"
-    t.bigint "occurrence_id"
+    t.bigint "occurrences_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["occurrence_id"], name: "index_votes_on_occurrence_id"
+    t.index ["occurrences_id"], name: "index_votes_on_occurrences_id"
   end
 
   add_foreign_key "occurrences", "types"
   add_foreign_key "occurrences", "users"
   add_foreign_key "photo_occurrences", "occurrences"
-  add_foreign_key "votes", "occurrences"
+  add_foreign_key "votes", "occurrences", column: "occurrences_id"
 end
