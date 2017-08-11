@@ -8,10 +8,12 @@
 					<%= f.input :data_begin %>
 					<%= f.input :status %>
 					<%= f.input :description %>
+					<%= f.association :type %>
 					<%= f.association :user  %>
 					<%= f.input :latitude %>
 					<%= f.input :longitude %>
 				</div>
+				
 				<div id="votes">
 					<%= f.fields_for :votes do |v| %>
 					<%= v.input :vote, :as => :radio_buttons %>
@@ -19,8 +21,7 @@
 					<% end -%>
 				</div>
 				<%= f.link_to_add "Add Vote", :votes, :data => { :target => "#votes" } %>
-				</div>
-
+				
 				<div id="photos">
 				<%= f.fields_for :photo_occurrences do |po|%>
 					<%= po.input :photo, as: :file%>
