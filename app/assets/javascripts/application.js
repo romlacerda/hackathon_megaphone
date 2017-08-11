@@ -23,49 +23,33 @@ $(document).ready(function(){
 	$.material.init();
 });
 
-      var map;
-      var myLatLng = {lat: -25.363, lng: 131.044};
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: myLatLng,
-          zoom: 16
-        });
-		var infoWindow = new google.maps.InfoWindow({map: map});
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-        var marker = new google.maps.Marker({
-		    position: pos,
-		    map: map,
-		    title: 'Hello World!'
-		  });
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-
-      }
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    alert("Geolocation is not supported by this browser.");
-  }
+function locate(){
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(initMap, fail);
+	}
+	else {
+		showError('Não suporta');
+	}
 }
-function showPosition(position) {
-	$lat = position.coords.latitude;
-	$lng = position.coords.longitude;
-	var lat = position.coords.latitude;
-	var lng = position.coords.longitude;
-	map.setCenter(new google.maps.LatLng(lat, lng));
+
+function initMap(position) {
+	var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	var lat = position;
+	console.log(lat);
+
+	var mapOptions = {
+		zoom: 16,
+		center: myLatLng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+	var userMarker = new google.maps.Marker({
+		position: myLatLng,
+		map: map	
+	})
+}
+
+function fail() {
+	alert('esse browser nao suporta.');
 }
