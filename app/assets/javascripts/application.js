@@ -58,6 +58,8 @@ function initMap(position) {
     	var long = event.latLng.lng();
     	var posicao = {lat: lat, lng: long};
     	placeMarker(posicao);
+		$("#modalOcorrencia").modal("show");
+
   	});
   	function placeMarker(location) {
 	    var marker = new google.maps.Marker({
