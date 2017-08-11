@@ -17,10 +17,15 @@
  *= require_self
  */
 
+body{
+	background:#fff;
+}
+
 
 .navbar {
 	background-color: #2196f3 !important;
 }
+
 #busca {
 	position: absolute;
 	margin-top: 15px;
@@ -42,11 +47,22 @@
 }
 
 #map {
-        height: 100vh;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+    height: 100vh;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.btn.btn-block.fb{
+	background-color:#3b5998;
+	color:#fff;	
+	font-weight: 500;
+
+	img{
+		margin-right:20px;
+	}
+}
