@@ -39,17 +39,34 @@ function initMap(position) {
 
 	var mapOptions = {
 		zoom: 16,
-		center: myLatLng,
+		//center: myLatLng,
+		center: {lat: -22.536536, lng: -44.182143},
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-	var userMarker = new google.maps.Marker({
-		position: myLatLng,
-		map: map	
-	})
+	//var userMarker = new google.maps.Marker({
+	//	position: myLatLng,
+	//	map: map	
+	//});
+
+  	google.maps.event.addListener(map, 'click', function(event) {
+  		console.log(event.latLng.lat());
+    	//document.getElementById("lat").value = event.latLng.lat();
+    	//document.getElementById("long").value = event.latLng.lng();
+    	var posicao = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+    	console.log(posicao);
+    	placeMarker(posicao);
+  	});
 }
 
 function fail() {
-	alert('esse browser nao suporta.');
+	console.log('esse browser nao suporta.');
+}
+
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        setMap: map
+    });
 }
