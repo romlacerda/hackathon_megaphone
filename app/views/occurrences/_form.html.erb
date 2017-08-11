@@ -19,6 +19,16 @@
 				<% end -%>
 				</div>
 				<%= f.link_to_add "Add Vote", :votes, :data => { :target => "#votes" } %>
+
+
+				<div id="photos">
+					<%= f.fields_for :photo_occurrences do |po|%>
+						<%= po.input :photo, as: :file%>
+						<%= po.link_to_remove "Remove this photo" %>
+					<% end -%>
+				</div>
+				<%= f.link_to_add "Add Photo", :photo_occurrences, :data => { :target => "#photos" } %>
+
 			  <div class="form-actions">
 			    <%= f.button :submit %>
 			  </div>

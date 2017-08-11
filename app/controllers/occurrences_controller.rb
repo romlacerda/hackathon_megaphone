@@ -24,8 +24,8 @@ class OccurrencesController < ApplicationController
   # POST /occurrences
   # POST /occurrences.json
   def create
+    #raise occurrence_params.inspect
     @occurrence = Occurrence.new(occurrence_params)
-
     respond_to do |format|
       if @occurrence.save
         format.html { redirect_to @occurrence, notice: 'Occurrence was successfully created.' }
@@ -70,8 +70,10 @@ class OccurrencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def occurrence_params
       params.require(:occurrence).permit(
-        :data_begin, :status, :description, :user_id, :latitude, :longitude, 
-        :votes_attributes => [:id, :vote, :occurrence_id, :_destroy]
+        :data_begin, :status, :description, :user_id, :latitude, :longitude, :date_end,
+
+        :votes_attributes => [:id, :vote, :_destroy],
+        :photo_occurrences_attributes => [:id, :photo, :_destroy]
       )
     end
 end

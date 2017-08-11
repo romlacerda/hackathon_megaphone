@@ -23,5 +23,8 @@
 	<%= v.vote%>
 <% end -%>
 
+<% @occurrence.photo_occurrences.each do |po|%>
+	<%= image_tag po.photo(:original)%>
+<% end -%>
 <%= link_to 'Edit', edit_occurrence_path(@occurrence) %> |
 <%= link_to 'Back', occurrences_path %>
