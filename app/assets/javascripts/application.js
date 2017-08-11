@@ -54,19 +54,21 @@ function initMap(position) {
   		console.log(event.latLng.lat());
     	//document.getElementById("lat").value = event.latLng.lat();
     	//document.getElementById("long").value = event.latLng.lng();
-    	var posicao = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
-    	console.log(posicao);
+    	var lat = event.latLng.lat();
+    	var long = event.latLng.lng();
+    	var posicao = {lat: lat, lng: long};
     	placeMarker(posicao);
   	});
+  	function placeMarker(location) {
+	    var marker = new google.maps.Marker({
+	        position: location, 
+	        map: map
+	    });
+	}
+
 }
 
 function fail() {
 	console.log('esse browser nao suporta.');
 }
 
-function placeMarker(location) {
-    var marker = new google.maps.Marker({
-        position: location, 
-        setMap: map
-    });
-}
