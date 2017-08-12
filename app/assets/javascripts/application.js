@@ -23,19 +23,19 @@ $(document).ready(function(){
 	$.material.init();
 });
 
-function locate(){
-	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(initMap, fail);
-	}
-	else {
-		showError('Não suporta');
-	}
-}
+//function locate(){
+//	if(navigator.geolocation) {
+//		navigator.geolocation.getCurrentPosition(initMap, fail);
+//	}
+//	else {
+//		showError('Não suporta');
+//	}
+//}
 
 function initMap(position) {
-	var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	var lat = position;
-	console.log(lat);
+	//var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	//var lat = position;
+	//console.log(lat);
 
 	var mapOptions = {
 		zoom: 16,
