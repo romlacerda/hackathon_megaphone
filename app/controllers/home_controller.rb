@@ -22,9 +22,14 @@ class HomeController < ApplicationController
 	end
 
 	def getAllOccurrences
-		@occurrences = Occurrences.all
+		@occurrences = Occurrence.all
 	end
 
+
+	def getById
+		@occurrence = Occurrence.find_by_id(params[:id])
+		render json: @occurrence
+	end
 
 	private
 		def occurrence_params

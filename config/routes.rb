@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :types
   
   get 'home/index'
-  post 'home/create_occurrence'
-
   get 'home/modal'
 
+  post 'home/create_occurrence'
+  post 'home/getById'
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations'}
   root "home#index"  
 end
