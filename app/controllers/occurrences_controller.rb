@@ -26,16 +26,9 @@ class OccurrencesController < ApplicationController
   def create
     #raise occurrence_params.inspect
     @occurrence = Occurrence.new(occurrence_params)
-    #respond_to do |format|
     @occurrence.save
-        #format.html {  }
-        #format.json {  }
-    #  else
-        #format.html { render :new }
-        #format.json { render json: @occurrence.errors, status: :unprocessable_entity }
-     # end
-    end
-  end
+    flash[:notice] ="Ocorrencia criada com sucesso"
+    redirect_to root_path
 
   # PATCH/PUT /occurrences/1
   # PATCH/PUT /occurrences/1.json
