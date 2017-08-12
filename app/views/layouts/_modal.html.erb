@@ -10,10 +10,10 @@
       <div class="modal-body">
         <%= f.association :user, as: :hidden,input_html: {:value => current_user.id} %>
         <%= f.association :type, label: "Tipo de Ocorrência" %>
-        <%= f.input :description, label: "Descrição" %>
-        <%= f.input :status, input_html: {value: "Rascunho", disabled: "disabled"}%>
-        <%= f.input :data_begin, as: :text, label: "Data Início" %>
-        <%= f.input :date_end, as: :text, label: "Data Fim" %>
+        <%= f.input :description, label: "Descrição", :id => "description" %>
+        <%= f.input :status, input_html: {value: "Rascunho", disabled: "disabled"}, :id => "status" %>
+        <%= f.input :data_begin, as: :text, label: "Data Início", :id => "data_begin" %>
+        <%= f.input :date_end, as: :text, label: "Data Fim", :id => "date_end" %>
         <div id="photos">
           <%= f.fields_for :photo_occurrences do |po|%>
             <%= po.input :photo, as: :file, label: "Foto" %>

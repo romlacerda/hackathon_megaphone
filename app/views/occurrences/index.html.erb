@@ -17,7 +17,7 @@
   <tbody>
     <% @occurrences.each do |occurrence| %>
       <tr>
-        <td><%= occurrence.data_begin %></td>
+        <td><%= occurrence.data_begin.strftime('%I:%M:%S %d-%m-%Y') %></td>
         <td><%= occurrence.status %></td>
         <td><%= occurrence.description %></td>
         <td><%= occurrence.latitude %></td>

@@ -76,6 +76,7 @@ function initMap(position) {
 	});
 
   	google.maps.event.addListener(map, 'click', function(event) {
+		limpaModal();
     	//document.getElementById("lat").value = event.latLng.lat();
     	//document.getElementById("long").value = event.latLng.lng();
     	var lat = event.latLng.lat();
@@ -84,7 +85,6 @@ function initMap(position) {
 		$("#modalOcorrencia").modal("show");
 		$("#occurrence_latitude").val(lat);
 		$("#occurrence_longitude").val(long);
-		console.log(lat);
 		$("#botaoSalvar").on("click", function() {
 			$("#modalOcorrencia").modal("hide");
 			placeMarker(posicao);
@@ -99,13 +99,19 @@ function initMap(position) {
 	        map: map
 	    });
     	
-    	google.maps.event.addListener(marker, 'click', function(event) {
-    		$("#modalOcorrencia").modal("show");
-			$("#botaoSalvar").on("click", function() {
-				$("#modalOcorrencia").modal("hide");
-			})
-		});
-		console.log(id);
+    	if(id != null) {
+	    	google.maps.event.addListener(marker, 'click', function(event) {
+	    			$("#modalOcorrencia").modal("show");
+	    			getData(id);
+
+				$("#botaoSalvar").on("click", function() {
+					$("#modalOcorrencia").modal("hide");
+				});
+
+
+			});
+			console.log(id);
+		}
 
 	}
 
@@ -129,3 +135,34 @@ function newLocation() {
 	map.setCenter(local.geometry.location);
 }
 
+function getData(id) {
+	$.ajax({
+		type: "POST",
+		dataType: "json",
+		url: "/home/getById",
+		data: { id : id},
+		success: function(occurrence) {
+			preencheInputs(occurrence);
+		}
+	});
+}
+
+function preencheInputs(occurrence) {
+	$("#occurrence_latitude").val(occurrence.latitude);
+	$("#occurrence_longitude").val(occurrence.longitude);
+	$("#occurrence_description").val(occurrence.description);
+	$("#occurrence_data_begin").val(occurrence.data_begin);
+	$("#occurrence_date_end").val(occurrence.date_end);
+	$("#occurrence_status").val(occurrence.status);
+	$("#occurrence_type_id").val(occurrence.type_id);
+}
+
+function limpaModal() {
+	$("#occurrence_latitude").val('');
+	$("#occurrence_longitude").val('');
+	$("#occurrence_description").val('');
+	$("#occurrence_data_begin").val('');
+	$("#occurrence_date_end").val('');
+	$("#occurrence_status").val('');
+	$("#occurrence_type_id").val('');
+}
