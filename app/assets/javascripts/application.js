@@ -92,7 +92,7 @@ function initMap(position) {
   	});
 
   	
-  	function placeMarker(location, id = null) {
+  	function placeMarker(location) {
 	    var marker = new google.maps.Marker({
 	        position: location, 
 	        map: map
