@@ -26,14 +26,14 @@ class OccurrencesController < ApplicationController
   def create
     #raise occurrence_params.inspect
     @occurrence = Occurrence.new(occurrence_params)
-    respond_to do |format|
-      if @occurrence.save
-        format.html {  }
-        format.json {  }
-      else
-        format.html { render :new }
-        format.json { render json: @occurrence.errors, status: :unprocessable_entity }
-      end
+    #respond_to do |format|
+    @occurrence.save
+        #format.html {  }
+        #format.json {  }
+    #  else
+        #format.html { render :new }
+        #format.json { render json: @occurrence.errors, status: :unprocessable_entity }
+     # end
     end
   end
 
