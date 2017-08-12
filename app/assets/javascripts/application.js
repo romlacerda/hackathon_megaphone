@@ -69,8 +69,9 @@ function initMap(position) {
 			$("#modalOcorrencia").modal("hide");
 			placeMarker(posicao);
 		})
-
   	});
+
+  	
   	function placeMarker(location) {
   		console.log(location);
 	    var marker = new google.maps.Marker({
