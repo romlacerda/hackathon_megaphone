@@ -103,6 +103,7 @@ function initMap(position) {
 	    	google.maps.event.addListener(marker, 'click', function(event) {
 	    			$("#modalOcorrencia").modal("show");
 	    			getData(id);
+	    			$(".votes").show();
 
 				$("#botaoSalvar").on("click", function() {
 					$("#modalOcorrencia").modal("hide");

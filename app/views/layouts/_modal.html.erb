@@ -23,19 +23,23 @@
         <%= f.link_to_add "Adicionar foto", :photo_occurrences, :data => { :target => "#photos" }, :class => "btn btn-primary btn-block"  %>
         <%= f.input :latitude, as: :hidden, :id => "latitude" %>
         <%= f.input :longitude, as: :hidden, :id => "longitude" %>
-        <div class="votes col-md-12">
+        <div class="votes col-md-12" style="display: none;">
           <div class="yes col-md-6">
             <div class="content">
               <%= image_tag('like-green', class: "pull-left") %>
-              <%= f.fields_for :votes do |v| %>
-          <%= v.input :vote, :as => :radio_buttons %>
-          <%= v.link_to_remove "Remove this vote" %>
-          <% end -%>
+              <div class="pull-left" style="margin-left: 10px;">
+                <%= f.radio_button :votes, input_html: { value: "true", class: "pull-left" } %>
+                <p>153</p>
+              </div>
             </div>
           </div>  
           <div class="no col-md-6">
             <div class="content">
               <%= image_tag('like-red', class: "pull-right") %>
+              <div class="pull-right" style="margin-right: 10px;">
+                <%= f.radio_button :votes, input_html: { value: "false", class: "pull-right" } %>
+                <p>10</p>
+              </div>
             </div>
           </div>
         </div>
