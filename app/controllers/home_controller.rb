@@ -13,11 +13,16 @@ class HomeController < ApplicationController
 		)
 
 		@count_occurences = count_occurences		
+		@occurrences = Occurrence.all
 	end
 
 	def create_occurrence
 		@occurrence = Occurrence.new(occurrence_params)
 		@occurrence.save
+	end
+
+	def getAllOccurrences
+		@occurrences = Occurrences.all
 	end
 
 

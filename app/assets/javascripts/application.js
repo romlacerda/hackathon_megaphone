@@ -98,3 +98,4 @@ function newLocation() {
 	console.log(local.geometry.location);
 	map.setCenter(local.geometry.location);
 }
+
