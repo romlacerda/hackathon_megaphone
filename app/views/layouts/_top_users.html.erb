@@ -1,0 +1,23 @@
+<div class="container-fluid" style="padding: 0;">
+  	<div class="row">
+		<table id="top-users" class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Posição</th>
+					<th>Ocorrencias</th>
+					<th>Usuario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @count_occurences.each_with_index do |co, i|%>
+					<% posicao = i+1%>
+					<tr>
+						<td><%= image_tag "icon-coroa-" + posicao.to_s + ".png"%></td>
+						<td><%= co["count"] %></td>
+						<td><%= co["name"]%></td>
+					</tr>
+				<% end -%>
+			</tbody>
+		</table>
+	</div>
+</div>
