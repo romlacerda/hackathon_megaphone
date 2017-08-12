@@ -1,7 +1,7 @@
 <% if @count_occurences.count > 0%>
 	<div class="container-fluid" style="padding: 0;">
 	  	<div class="row">
-			<table id="top-users" class="table table-striped table-bordered">
+			<table id="top-users" class="table table-striped">
 				<thead>
 					<tr>
 						<th>Posição</th>
@@ -17,6 +17,7 @@
 							<td><%= co["count"] %></td>
 							<td><%= co["name"]%></td>
 						</tr>
+						
 					<% end -%>
 				</tbody>
 			</table>
