@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812000606) do
+ActiveRecord::Schema.define(version: 20170812133341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,11 +74,14 @@ ActiveRecord::Schema.define(version: 20170812000606) do
     t.bigint "occurrence_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["occurrence_id"], name: "index_votes_on_occurrence_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "occurrences", "types"
   add_foreign_key "occurrences", "users"
   add_foreign_key "photo_occurrences", "occurrences"
   add_foreign_key "votes", "occurrences"
+  add_foreign_key "votes", "users"
 end
