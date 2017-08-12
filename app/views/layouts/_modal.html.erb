@@ -21,8 +21,8 @@
           <% end -%>
         </div>
         <%= f.link_to_add "Adicionar foto", :photo_occurrences, :data => { :target => "#photos" }, :class => "btn btn-primary btn-block"  %>
-        <%= f.input :latitude, as: :hidden %>
-        <%= f.input :longitude, as: :hidden %>
+        <%= f.input :latitude, as: :hidden, :id => "latitude" %>
+        <%= f.input :longitude, as: :hidden, :id => "longitude" %>
       </div>
       <div class="modal-footer">
         <%= f.submit "Salvar Ocorrencia", :class=> "btn btn-success btn-block", :id=> "botaoSalvar" %>

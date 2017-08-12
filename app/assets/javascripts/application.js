@@ -82,6 +82,9 @@ function initMap(position) {
     	var long = event.latLng.lng();
     	var posicao = {lat: lat, lng: long};
 		$("#modalOcorrencia").modal("show");
+		$("#occurrence_latitude").val(lat);
+		$("#occurrence_longitude").val(long);
+		console.log(lat);
 		$("#botaoSalvar").on("click", function() {
 			$("#modalOcorrencia").modal("hide");
 			placeMarker(posicao);
@@ -97,13 +100,13 @@ function initMap(position) {
     	
     	google.maps.event.addListener(marker, 'click', function(event) {
     		$("#modalOcorrencia").modal("show");
+			$("#botaoSalvar").on("click", function() {
+				$("#modalOcorrencia").modal("hide");
+			})
 		});
 		console.log(id);
 
 	}
-
-
-
 
 	var autoCompleteInput = document.getElementById('endereco');
 	var autoCompleteOpcoes = {
@@ -111,8 +114,6 @@ function initMap(position) {
 	}
 
 	autocomplete = new google.maps.places.Autocomplete(autoCompleteInput,autoCompleteOpcoes);
-
-
 
 }
 
