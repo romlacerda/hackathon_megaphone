@@ -27,6 +27,7 @@ class OccurrencesController < ApplicationController
     #raise occurrence_params.inspect
     @occurrence = Occurrence.new(occurrence_params)
     @occurrence.save
+    flash[:notice] ="Ocorrencia criada com sucesso"
     redirect_to root_path
   end
 

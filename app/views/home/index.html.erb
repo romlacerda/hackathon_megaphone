@@ -1,6 +1,11 @@
 <%= render partial: "layouts/navbar" %>
 <%= render partial: "layouts/modal" %>
 
+<% if notice != nil%>
+  <div class="alert alert-success">
+    <%= notice %>
+  </div>
+<% end -%>
 <div class="hidden-xs">
   <%= render partial: "layouts/top_users" %>
 </div>

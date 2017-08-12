@@ -168,6 +168,12 @@ function limpaModal() {
 }
 
 
+$(document).ready(function(){
+	setTimeout(function(){
+		$(".alert.alert-success").remove();
+	}, 3000);
+});
+
 //$(document).ready(function(){
 //	$('#new_occurrence').submit(function() {  
 //	    var valuesToSubmit = $(this).serialize();
