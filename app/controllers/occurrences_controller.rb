@@ -33,7 +33,7 @@ class OccurrencesController < ApplicationController
   # PATCH/PUT /occurrences/1
   # PATCH/PUT /occurrences/1.json
   def update
-    respond_to do |format|
+      respond_to do |format|
       if @occurrence.update(occurrence_params)
         #format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
         #format.json { render :show, status: :ok, location: @occurrence }
