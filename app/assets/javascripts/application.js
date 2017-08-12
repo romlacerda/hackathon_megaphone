@@ -24,6 +24,8 @@ $(document).ready(function(){
 	$.material.init();
 });
 
+
+
 //function locate(){
 //	if(navigator.geolocation) {
 //		navigator.geolocation.getCurrentPosition(initMap, fail);
@@ -58,6 +60,21 @@ function initMap(position) {
 	//	map: map	
 	//});
 
+
+	// Busca as latitudes e longitudes das ocorrências.
+	$.ajax({
+		type: "GET",
+		dataType: "json",
+		url: "/occurrences",
+		success: function(data) {
+			console.log(data);
+			for(var i = 0; i < data.length; i++) {
+				var pos = {lat: parseFloat(data[i].latitude), lng: parseFloat(data[i].longitude)}
+				placeMarker(pos);
+			}
+		}
+	});
+
   	google.maps.event.addListener(map, 'click', function(event) {
     	//document.getElementById("lat").value = event.latLng.lat();
     	//document.getElementById("long").value = event.latLng.lng();
@@ -87,6 +104,9 @@ function initMap(position) {
 	}
 
 	autocomplete = new google.maps.places.Autocomplete(autoCompleteInput,autoCompleteOpcoes);
+
+
+
 }
 
 function fail() {
