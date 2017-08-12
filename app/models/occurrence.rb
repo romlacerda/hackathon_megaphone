@@ -6,5 +6,6 @@ class Occurrence < ApplicationRecord
 	accepts_nested_attributes_for :votes,  allow_destroy: true
 	accepts_nested_attributes_for :photo_occurrences, allow_destroy: true
 
+	
 end
 

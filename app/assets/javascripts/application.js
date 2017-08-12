@@ -17,6 +17,9 @@
 //= require bootstrap-material-design
 //= require jquery_nested_form
 //= require jquery-ui
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
 //= require_self
 
 $(document).ready(function(){
