@@ -17,6 +17,7 @@
 //= require bootstrap-material-design
 //= require jquery_nested_form
 //= require jquery-ui
+
 //= require_self
 
 $(document).ready(function(){

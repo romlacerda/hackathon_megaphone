@@ -244,6 +244,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-material-design
+  bootstrap-sass
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
