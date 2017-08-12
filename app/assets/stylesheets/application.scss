@@ -92,14 +92,17 @@ textarea{
 }
 
 
-#top-users{
-	// position: absolute;
-	// margin-top: 15px;
-	// z-index: 100;
-	// width: 9vw;
-	// bottom:4vh;
-	// left:80vw;
+.hidden-xs #top-users{
+	position: absolute;
+	margin-top: 15px;
+	z-index: 100;
+	width: 9vw;
+	bottom:4vh;
+	left:80vw;
+}
 
+
+#top-users{
 	th{
 		text-align: center;
 		background: #2196f3;
