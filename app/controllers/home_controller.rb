@@ -3,14 +3,22 @@ class HomeController < ApplicationController
 
 	def index
 		@occurrence = Occurrence.new
+		count_occurences = ActiveRecord::Base.connection.execute(
+			"SELECT COUNT(occurrences.id), users.id, users.name
+			FROM occurrences
+			INNER JOIN users on occurrences.user_id = users.id
+			GROUP BY users.id, users.name
+			ORDER BY COUNT(occurrences.id) DESC
+			LIMIT 3"
+		)
+
+		@count_occurences = count_occurences		
 	end
 
-	def create_occurrence(occurrence)
-		@occurrence = new Occurrence(occurrence)
+	def create_occurrence
+		@occurrence = Occurrence.new(occurrence_params)
 		@occurrence.save
 	end
-
-
 
 
 	private

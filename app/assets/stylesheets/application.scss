@@ -87,7 +87,22 @@ html, body {
 	}
 }
 
-
 textarea{
 	resize:none;
+}
+
+
+#top-users{
+	width:30%;
+	position:absolute;
+	text-align:center;
+	th{
+		text-align: center;
+	}
+	td{
+		vertical-align:middle;
+		img{
+			width:40px;
+		}
+	}
 }

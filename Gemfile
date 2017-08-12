@@ -29,7 +29,7 @@ gem 'jquery-rails'
 gem 'rails-assets-bootstrap-sass'
 gem 'bootstrap-material-design'
 gem 'rails-assets-jquery-ui'
-
+gem 'lazy_high_charts'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
