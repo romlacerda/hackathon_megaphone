@@ -70,7 +70,7 @@ function initMap(position) {
 			console.log(data);
 			for(var i = 0; i < data.length; i++) {
 				var pos = {lat: parseFloat(data[i].latitude), lng: parseFloat(data[i].longitude)}
-				placeMarker(pos);
+				placeMarker(pos, data[i].id);
 			}
 		}
 	});
@@ -89,13 +89,20 @@ function initMap(position) {
   	});
 
   	
-  	function placeMarker(location) {
-  		console.log(location);
+  	function placeMarker(location, id = null) {
 	    var marker = new google.maps.Marker({
 	        position: location, 
 	        map: map
 	    });
+    	
+    	google.maps.event.addListener(marker, 'click', function(event) {
+    		$("#modalOcorrencia").modal("show");
+		});
+		console.log(id);
+
 	}
+
+
 
 
 	var autoCompleteInput = document.getElementById('endereco');
