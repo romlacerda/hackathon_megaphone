@@ -29,20 +29,20 @@ class OccurrencesController < ApplicationController
     @occurrence.save
     flash[:notice] ="Ocorrencia criada com sucesso"
     redirect_to root_path
-
+  end
   # PATCH/PUT /occurrences/1
   # PATCH/PUT /occurrences/1.json
   def update
-      respond_to do |format|
-      if @occurrence.update(occurrence_params)
-        #format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @occurrence }
-      else
-        format.html { render :edit }
-        format.json { render json: @occurrence.errors, status: :unprocessable_entity }
-      end
+    respond_to do |format|
+    if @occurrence.update(occurrence_params)
+      #format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
+      #format.json { render :show, status: :ok, location: @occurrence }
+    else
+      format.html { render :edit }
+      format.json { render json: @occurrence.errors, status: :unprocessable_entity }
     end
   end
+
 
   # DELETE /occurrences/1
   # DELETE /occurrences/1.json
@@ -69,4 +69,5 @@ class OccurrencesController < ApplicationController
         :photo_occurrences_attributes => [:id, :photo, :_destroy]
       )
     end
+
 end
