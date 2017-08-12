@@ -43,7 +43,7 @@ function initMap(position) {
 		center: {lat: -22.536536, lng: -44.182143},
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
-	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 	//var userMarker = new google.maps.Marker({
 	//	position: myLatLng,
@@ -51,7 +51,6 @@ function initMap(position) {
 	//});
 
   	google.maps.event.addListener(map, 'click', function(event) {
-  		console.log(event.latLng.lat());
     	//document.getElementById("lat").value = event.latLng.lat();
     	//document.getElementById("long").value = event.latLng.lng();
     	var lat = event.latLng.lat();
@@ -77,9 +76,17 @@ function initMap(position) {
 
 	autocomplete = new google.maps.places.Autocomplete(autoCompleteInput,autoCompleteOpcoes);
 
+
+
 }
 
 function fail() {
 	console.log('esse browser nao suporta.');
 }
 
+function newLocation() {
+	var local = autocomplete.getPlace();
+	console.log(local);
+	console.log(local.geometry.location);
+	map.setCenter(local.geometry.location);
+}
