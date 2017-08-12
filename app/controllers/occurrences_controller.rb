@@ -28,8 +28,8 @@ class OccurrencesController < ApplicationController
     @occurrence = Occurrence.new(occurrence_params)
     respond_to do |format|
       if @occurrence.save
-        format.html { redirect_to @occurrence, notice: 'Occurrence was successfully created.' }
-        format.json { render :show, status: :created, location: @occurrence }
+        format.html {  }
+        format.json {  }
       else
         format.html { render :new }
         format.json { render json: @occurrence.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class OccurrencesController < ApplicationController
   def update
     respond_to do |format|
       if @occurrence.update(occurrence_params)
-        format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
-        format.json { render :show, status: :ok, location: @occurrence }
+        #format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @occurrence }
       else
         format.html { render :edit }
         format.json { render json: @occurrence.errors, status: :unprocessable_entity }

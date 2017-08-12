@@ -38,14 +38,21 @@ function initMap(position) {
 	//var lat = position;
 	//console.log(lat);
 
+	var posInitial = {lat: -22.536536, lng: -44.182143};
 	var mapOptions = {
 		zoom: 16,
 		//center: myLatLng,
-		center: {lat: -22.536536, lng: -44.182143},
+		center: posInitial,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
+	
 	map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+	
+	var initMarker = new google.maps.Marker({
+		position: posInitial,
+		map: map,
+		icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+	});
 	//var userMarker = new google.maps.Marker({
 	//	position: myLatLng,
 	//	map: map	
@@ -57,8 +64,11 @@ function initMap(position) {
     	var lat = event.latLng.lat();
     	var long = event.latLng.lng();
     	var posicao = {lat: lat, lng: long};
-    	placeMarker(posicao);
 		$("#modalOcorrencia").modal("show");
+		$("#botaoSalvar").on("click", function() {
+			$("#modalOcorrencia").modal("hide");
+			placeMarker(posicao);
+		})
 
   	});
   	function placeMarker(location) {
