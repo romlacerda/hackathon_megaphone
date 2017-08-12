@@ -69,6 +69,14 @@ function initMap(position) {
 	    });
 	}
 
+
+	var autoCompleteInput = document.getElementById('endereco');
+	var autoCompleteOpcoes = {
+	  types: ['geocode']
+	}
+
+	autocomplete = new google.maps.places.Autocomplete(autoCompleteInput,autoCompleteOpcoes);
+
 }
 
 function fail() {
