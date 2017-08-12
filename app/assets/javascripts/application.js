@@ -75,9 +75,6 @@ function initMap(position) {
 	}
 
 	autocomplete = new google.maps.places.Autocomplete(autoCompleteInput,autoCompleteOpcoes);
-
-
-
 }
 
 function fail() {
